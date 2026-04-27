@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { RouterLink, RouterLinkActive } from "@angular/router";
+import { GifsService } from "../../../services/gifs.service";
 
 interface MenuOption {
     icon: string;
@@ -8,11 +9,14 @@ interface MenuOption {
     subLabel: string;
 }
 
-@Component({    selector: "app-side-menu-options",
+@Component({
+    selector: "app-side-menu-options",
     templateUrl: "./side-menu-options.component.html",
     imports: [RouterLink, RouterLinkActive],
 })
 export default class SideMenuOptionsComponent {
+
+    gifService = inject(GifsService);
 
     menuOptions: MenuOption[] = [
         {
